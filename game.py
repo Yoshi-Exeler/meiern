@@ -4,6 +4,7 @@ from player import Player
 from dice import Dice
 from random import randrange
 
+
 class Game:
     __config: GameConfig
     __players: list[Player]
@@ -11,12 +12,12 @@ class Game:
     __label: int
     __state: Dice
 
-    def __init__(self,c) -> None:
+    def __init__(self, c) -> None:
         self.__config = c
 
     # Adds a Player to the Game and Checks wether or not the game should now start,
     # if the game should now start, it will be started.
-    def AddPlayer(self,p) -> None:
+    def AddPlayer(self, p) -> None:
         if len(self.__players) == self.__config.PlayerLimit:
             return
         self.__players.append(p)
@@ -28,8 +29,9 @@ class Game:
         self.__label = 0
         d1 = Die()
         d2 = Die()
-        self.__state = Dice([d1,d2])
-        self.__active_player = self.__players[randrange(0,len(self.__players))]
+        self.__state = Dice([d1, d2])
+        self.__active_player = self.__players[randrange(
+            0, len(self.__players))]
 
     # Resets the Entire Game State
     def __resetGame(self) -> None:
@@ -44,6 +46,7 @@ class Game:
         self.__active_player = self.__players[(idx+1) % len(self.__players)]
 
     # Checks wether or not the Current label is equivalent to the current state
+
     def Challenge(self) -> bool:
         return self.__label != self.__state
 
