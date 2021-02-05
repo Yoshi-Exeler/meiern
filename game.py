@@ -9,6 +9,7 @@ class Game:
     __config: GameConfig
     __players: list[Player]
     __active_player: Player
+    __last_player: Player
     __label: int
     __state: Dice
 
@@ -57,3 +58,9 @@ class Game:
 
     def Roll(self) -> None:
         pass
+
+    def GetLastPlayer(self) -> Player:
+        return self.__last_player
+
+    def GetLabel(self) -> int:
+        return self.__label
