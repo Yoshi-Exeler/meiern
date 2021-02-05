@@ -1,6 +1,6 @@
 <diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>120</x><y>80</y><w>100</w><h>50</h></coordinates><panel_attributes>Die
 --
-+Roll(): uint</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>50</y><w>210</w><h>170</h></coordinates><panel_attributes>Game
++Roll(): uint</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>0</y><w>210</w><h>220</h></coordinates><panel_attributes>Game
 --
 -config: GameConfig
 -players: []Player
@@ -11,9 +11,13 @@
 +AddPlayer(p: Player): void
 +RemovePlayer(p:Player): void
 -startGame() : void
--restartGame(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>210</y><w>220</w><h>110</h></coordinates><panel_attributes>Dice
+-restartGame(): void
 --
--dice_collection: []die
++Challenge(): bool
++Pass(val: uint): void
++Roll(): dice</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>40</x><y>210</y><w>220</w><h>110</h></coordinates><panel_attributes>Dice
+--
+-dice: []die
 --
 +NewDice(dice: []dice): Dice
 +Roll(): void
@@ -30,12 +34,7 @@
 --
 +GetLabel(): uint
 +GetState(): state
---
-+Challenge(): void
-
-+Pass(val: uint): void
-
-+Roll(): dice</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>10</y><w>170</w><h>50</h></coordinates><panel_attributes>GameConfig
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>10</y><w>170</w><h>50</h></coordinates><panel_attributes>GameConfig
 --
 +PlayerLimit: uint</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>530</x><y>30</y><w>210</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-
 Component of</panel_attributes><additional_attributes>190;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>530</x><y>80</y><w>210</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-

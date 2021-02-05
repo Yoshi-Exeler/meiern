@@ -10,3 +10,6 @@ class Die:
     def Roll(self) -> int:
         self.__value = randrange(1,self.__sides)
         return self.__value
+
+    def GetValue(self) -> int:
+        return self.__value
