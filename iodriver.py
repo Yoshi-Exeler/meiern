@@ -2,7 +2,7 @@ from game import Game
 from player import Player
 
 
-class InputInterface:
+class IODriver:
 
     def __init__(self) -> None:
         pass

@@ -1,10 +1,11 @@
+from iodriver import IODriver
 from player import Player
-from inputinterface import InputInterface
+from iodriver import IODriver
 from game import Game
 from override import overrides
 
 
-class CLI(InputInterface):
+class CLI(IODriver):
 
     def __init__(self) -> None:
         pass
