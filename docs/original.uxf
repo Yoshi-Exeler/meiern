@@ -1,9 +1,9 @@
-<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>170</x><y>160</y><w>80</w><h>80</h></coordinates><panel_attributes>Die
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>130</x><y>160</y><w>80</w><h>80</h></coordinates><panel_attributes>Die
 --
 -sides
 -value
 --
-+Roll(): uint</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>740</x><y>40</y><w>210</w><h>240</h></coordinates><panel_attributes>Game
++Roll(): uint</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>700</x><y>40</y><w>210</w><h>240</h></coordinates><panel_attributes>Game
 --
 -config: GameConfig
 -players: []Player
@@ -19,25 +19,25 @@
 --
 +Challenge(): bool
 +Pass(val: uint): void
-+Roll(): dice</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>0</y><w>220</w><h>110</h></coordinates><panel_attributes>Dice
++Roll(): dice</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>310</x><y>0</y><w>220</w><h>110</h></coordinates><panel_attributes>Dice
 --
 -dice: []die
 --
 +NewDice(dice: []dice): Dice
 +Roll(): void
 +GetValue(): uint
-+Bigger(a: dice): bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>190</y><w>170</w><h>80</h></coordinates><panel_attributes>Player
++Bigger(a: dice): bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>190</y><w>170</w><h>80</h></coordinates><panel_attributes>Player
 --
 -name: string
 -score: int
 --
-+OnBeginTurn(g: game): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>120</y><w>170</w><h>50</h></coordinates><panel_attributes>GameConfig
++OnBeginTurn(g: game): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>120</y><w>170</w><h>50</h></coordinates><panel_attributes>GameConfig
 --
-+PlayerLimit: uint</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>130</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Component of</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>190</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Component of</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>100</y><w>130</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Component of</panel_attributes><additional_attributes>110;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>559</x><y>230</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Used in</panel_attributes><additional_attributes>10;20;180;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>660</x><y>480</y><w>370</w><h>140</h></coordinates><panel_attributes>Webserver
++PlayerLimit: uint</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>520</x><y>130</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Component of</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>520</x><y>190</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Component of</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>200</x><y>100</y><w>130</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Component of</panel_attributes><additional_attributes>110;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>519</x><y>230</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Used in</panel_attributes><additional_attributes>10;20;180;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>620</x><y>480</y><w>370</w><h>140</h></coordinates><panel_attributes>Webserver
 --
 -port
 -url_suffix
@@ -46,7 +46,7 @@ Used in</panel_attributes><additional_attributes>10;20;180;20</additional_attrib
 -view: GameView
 --
 +NewWebServer(c: GameController, v: View, g: Game): Webserver
-+Serve(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>510</y><w>440</w><h>230</h></coordinates><panel_attributes>API Specification
++Serve(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>510</y><w>440</w><h>230</h></coordinates><panel_attributes>API Specification
 --
 # These Return HTML
 /main :: GET # Get the Main Page
@@ -61,21 +61,21 @@ Payload: {name:&lt;yourname&gt;}
 {action:&lt;desiredaction&gt;,val:&lt;optionalargument&gt;}
 # Options here are 'challenge' 'roll' 'pass',
 # Val is only required for pass it contains the value the dice should be passed as 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>750</x><y>270</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Component of</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>530</y><w>190</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Implements</panel_attributes><additional_attributes>10;20;170;20</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>610</x><y>740</y><w>120</w><h>40</h></coordinates><panel_attributes>*Browser Client A*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>780</x><y>740</y><w>120</w><h>40</h></coordinates><panel_attributes>*Browser Client B*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>940</x><y>740</y><w>120</w><h>40</h></coordinates><panel_attributes>*Browser Client C*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>610</y><w>50</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>30;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>610</y><w>50</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;30;130</additional_attributes></element><element><id>Relation</id><coordinates><x>830</x><y>610</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>850</x><y>330</y><w>210</w><h>80</h></coordinates><panel_attributes>GameView
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>710</x><y>270</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Component of</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>530</y><w>190</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Implements</panel_attributes><additional_attributes>10;20;170;20</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>570</x><y>740</y><w>120</w><h>40</h></coordinates><panel_attributes>*Browser Client A*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>740</x><y>740</y><w>120</w><h>40</h></coordinates><panel_attributes>*Browser Client B*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>900</x><y>740</y><w>120</w><h>40</h></coordinates><panel_attributes>*Browser Client C*</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>620</x><y>610</y><w>50</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>30;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>910</x><y>610</y><w>50</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;30;130</additional_attributes></element><element><id>Relation</id><coordinates><x>790</x><y>610</y><w>30</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>810</x><y>330</y><w>210</w><h>80</h></coordinates><panel_attributes>GameView
 --
 -game: Game
 --
 +GnGetView(): string
 +OnGetMain(): string
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>630</x><y>330</y><w>210</w><h>80</h></coordinates><panel_attributes>GameController
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>330</y><w>210</w><h>80</h></coordinates><panel_attributes>GameController
 --
 -game: Game
 --
 +OnPostJoin(n: string): string
-+OnTurnAction(a: string): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>270</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Component of</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>400</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Component of</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>750</x><y>400</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-
-Component of</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>40</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
++OnTurnAction(a: string): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>270</y><w>100</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Component of</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>400</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Component of</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>710</x><y>400</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;-
+Component of</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>520</x><y>40</y><w>200</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;-
 Component of</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element></diagram>

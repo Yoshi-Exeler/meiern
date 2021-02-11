@@ -10,12 +10,11 @@ class CLI(IODriver):
     def __init__(self):
         pass
 
-    def cls(self):
+    def __clear(self):
         os.system('cls' if os.name=='nt' else 'clear')
 
     @overrides
     def OnBeginGame(self, g: Game, p: Player):
-        self.cls()
         print("Hello ",p.GetName()," it is your turn!")
         print("This is the First Turn of the Game, you need to roll the dice!")
         input()
@@ -28,6 +27,7 @@ class CLI(IODriver):
     
     @overrides
     def OnBeginTurn(self, g: Game, p: Player):
+        self.__clear()
         print("Hello ",p.GetName()," it is your turn!")
         print("You Recieved some dice from",g.GetLastPlayer().GetName()," he says its a",g.GetLabel())
         print("What do you do? (Options: 'pass', 'challenge, 'roll')")
