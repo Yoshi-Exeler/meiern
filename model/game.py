@@ -16,23 +16,6 @@ class Game:
     def __init__(self, c):
         self.__config = c
 
-    # Internal Methods
-
-    # Initialize the Game and Set the Active Player at random
-    def __startGame(self):
-        # Init Fields
-        self.__label = 0
-        d1 = Die(6)
-        d2 = Die(6)
-        self.__state = Dice([d1, d2])
-        # Pick Random First Player
-        self.__active_player = self.__players[randrange(
-            0, len(self.__players))]
-        # Prompt the first player
-        self.__active_player.GetDriver().OnBeginGame(self,self.__active_player)
-
-    
-
     # Resets the Entire Game State
     def __resetGame(self):
         self.__active_player = None
@@ -49,12 +32,9 @@ class Game:
 
     # Public API
 
-    # Adds a Player to the Game and Checks wether or not the game should now start,
-    # if the game should now start, it will be started.
+    # Adds a Player to the Game
     def AddPlayer(self, p):
         self.__players.append(p)
-        if len(self.__players) == self.__config.PlayerLimit:
-            self.__startGame()
 
     # Checks wether or not the Current label is equivalent to the current state
     def Challenge(self):
@@ -68,6 +48,19 @@ class Game:
     def Roll(self):
         self.__state.Roll()
         return self.__state
+
+   # Initialize the Game and Set the Active Player at random
+    def Start(self):
+        # Init Fields
+        self.__label = 0
+        d1 = Die(6)
+        d2 = Die(6)
+        self.__state = Dice([d1, d2])
+        # Pick Random First Player
+        self.__active_player = self.__players[randrange(
+            0, len(self.__players))]
+        # Prompt the first player
+        self.__active_player.GetDriver().OnBeginGame(self,self.__active_player)
 
     #GET/SET
     def GetState(self):
