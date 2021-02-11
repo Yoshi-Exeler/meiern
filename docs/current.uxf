@@ -1,0 +1,53 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>139</x><y>40</y><w>140</w><h>110</h></coordinates><panel_attributes>Dice
+--
+-dice
+--
++NewDice(d: []die): Dice
++Roll(): void
++GetValue(): int
++Bigger(dice: Dice): bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>299</x><y>50</y><w>160</w><h>300</h></coordinates><panel_attributes>Game
+--
+-config: GameConfig
+-players: Player[]
+-active_player: Player
+-last_player: Player
+-label: int
+-state: dice
+--
++NewGame(): Game
+-StartGame(): void
+-ResetGame(): void
++PassTurn(): void
++AddPlayer(p: Player): void
++Challenge(): bool
++Pass(val: int): void
++Roll(): void
++GetState(): void
++GetActivePlayer(): void
++GetLastPlayer(): void
++GetLabel(): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>509</x><y>80</y><w>280</w><h>170</h></coordinates><panel_attributes>Player
+--
+-name: string
+-driver: IODriver
+-score: int
+--
++NewPlayer(name: String, driver: IODriver): Player
++GetName(): string
++GetDriver(): IODriver
++DecrementScore(): void
++IncrementScore(): void
++GetScore(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>90</x><y>190</y><w>140</w><h>110</h></coordinates><panel_attributes>Die
+--
+-sides: int
+-value: int
+--
++NewDie(sides: int): Die
++Roll(): void
++GetValue(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>110</y><w>100</w><h>50</h></coordinates><panel_attributes>GameConfig
+--
++PlayerLimit: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>360</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;IODriver&gt;&gt;
+--
++OnBeginGame(g: Game, p: Player): void
++OnBeginTurn(g: Game, p: Player): void
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

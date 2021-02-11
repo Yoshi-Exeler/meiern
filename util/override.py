@@ -3,9 +3,6 @@ import re
 
 
 def overrides(method):
-    # actually can't do this because a method is really just a function while inside a class def'n
-    # assert(inspect.ismethod(method))
-
     stack = inspect.stack()
     base_classes = re.search(r'class.+\((.+)\)\s*\:', stack[2][4][0]).group(1)
 
