@@ -13,5 +13,12 @@ class Dice:
         sec = min(self.__dice[0].GetValue(), self.__dice[1].GetValue())
         return 10*prim+sec
 
-    def Bigger(self, other_dice):
-        return self.GetValue() > other_dice.GetValue()
+    @staticmethod
+    def Bigger(a: int, b:int):
+        if a != b:
+            if a == 21:
+                return True
+            if b == 21:
+                return False
+            return a > b
+        return False

@@ -3,7 +3,6 @@ from model.die import *
 from model.dice import *
 from model.player import *
 from random import randrange
-from subprocess import call
 
 class Game:
     __config: GameConfig

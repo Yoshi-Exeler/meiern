@@ -50,19 +50,23 @@ class CLI(IODriver):
         if success:
             g.GetLastPlayer().DecrementScore()
             g.GetActivePlayer().IncrementScore()
-            print("Your Challenge was Successfull",g.GetLastPlayer().GetName()," Loses one point and is now at",g.GetLastPlayer().GetScore(),"Points")
+            print("Your Challenge was Successfull, it was a",g.GetState().GetValue(),"",g.GetLastPlayer().GetName()," Loses one point and is now at",g.GetLastPlayer().GetScore(),"Points")
             print(g.GetActivePlayer().GetName(),"gains one point and is now at",g.GetActivePlayer().GetScore())
             self.__handleRoll(g,p)
         else:
             g.GetLastPlayer().IncrementScore()
             g.GetActivePlayer().DecrementScore()
-            print("Your Challenge was not Successfull",g.GetLastPlayer().GetName()," Gains one point and is now at",g.GetLastPlayer().GetScore(),"Points")
+            print("Your Challenge was not Successfull, it was a",g.GetState().GetValue(),"",g.GetLastPlayer().GetName()," Gains one point and is now at",g.GetLastPlayer().GetScore(),"Points")
             print(g.GetActivePlayer().GetName,"looses one point and is now at",g.GetActivePlayer().GetScore())
             self.__handleRoll(g,p)
 
     def __handlePass(self,g: Game,p: Player):
         print("As what would you like to pass the dice?")
         inpLabel = int(input())
+        # The Player must say a higher number
+        if Dice.Bigger(g.GetLabel(),inpLabel):
+            print("You have to claim a higher number")
+            self.__handlePass(g,p)
         g.Pass(inpLabel)
         print("You Passed as",inpLabel)
         g.PassTurn()
