@@ -1,5 +1,4 @@
-from model.game import *
-from model.player import *
+from model import *
 
 class IODriver:
 

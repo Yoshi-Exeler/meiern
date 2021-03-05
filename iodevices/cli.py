@@ -1,7 +1,7 @@
-from model.game import *
-from model.player import *
+from model import *
 from util.override import *
 from iodevices.iodriver import *
+
 import os
 
 
@@ -15,11 +15,11 @@ class CLI(IODriver):
 
     @overrides
     def OnBeginGame(self, g: Game, p: Player):
-        print("Hello ",p.GetName()," it is your turn!")
+        print("Hello",p.GetName(),"it is your turn!")
         print("This is the First Turn of the Game, you need to roll the dice!")
         input()
         g.Roll()
-        print("You Rolled ",g.GetState().GetValue()," What would you like to pass this as?")
+        print("You Rolled",g.GetState().GetValue(),"What would you like to pass this as?")
         inpLabel = int(input())
         g.Pass(inpLabel)
         print("You Passed as",inpLabel)
@@ -28,10 +28,14 @@ class CLI(IODriver):
     @overrides
     def OnBeginTurn(self, g: Game, p: Player):
         self.__clear()
-        print("Hello ",p.GetName()," it is your turn!")
-        print("You Recieved some dice from",g.GetLastPlayer().GetName()," he says its a",g.GetLabel())
+        print("Hello",p.GetName(),"it is your turn!")
+        print("You Recieved some dice from",g.GetLastPlayer().GetName(),"he says its a",g.GetLabel())
         print("What do you do? (Options: 'pass', 'challenge, 'roll')")
         self.__getSelection(g,p)
+
+    # Safely cast input, check bounds
+    def __getLabel(self,g: Game,p: Player):
+        pass
 
     def __getSelection(self,g: Game,p: Player):
         inp = input()

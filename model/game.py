@@ -1,8 +1,8 @@
+from random import randrange
 from model.gameconfig import *
 from model.die import *
 from model.dice import *
 from model.player import *
-from random import randrange
 
 class Game:
     __config: GameConfig
@@ -13,7 +13,13 @@ class Game:
     __state: Dice
 
     def __init__(self, c):
+        # Assign Config
         self.__config = c
+        # Init Fields
+        self.__label = 0
+        d1 = Die(6)
+        d2 = Die(6)
+        self.__state = Dice([d1, d2])
 
     # Resets the Entire Game State
     def __resetGame(self):
@@ -50,11 +56,6 @@ class Game:
 
    # Initialize the Game and Set the Active Player at random
     def Start(self):
-        # Init Fields
-        self.__label = 0
-        d1 = Die(6)
-        d2 = Die(6)
-        self.__state = Dice([d1, d2])
         # Pick Random First Player
         self.__active_player = self.__players[randrange(
             0, len(self.__players))]
