@@ -20,7 +20,7 @@ class CLI(IODriver):
         input()
         g.Roll()
         print("You Rolled",g.GetState().GetValue(),"What would you like to pass this as?")
-        inpLabel = int(input())
+        inpLabel = self.__getLabel(g,p)
         g.Pass(inpLabel)
         print("You Passed as",inpLabel)
         g.PassTurn()
@@ -33,9 +33,24 @@ class CLI(IODriver):
         print("What do you do? (Options: 'pass', 'challenge, 'roll')")
         self.__getSelection(g,p)
 
-    # Safely cast input, check bounds
+    # Gets the Input from the Console, until a valid number between 21 and 66 was entered
     def __getLabel(self,g: Game,p: Player):
-        pass
+        conv = 0
+        while True:
+            raw = input()
+            conv = 0
+            try:
+                conv = int(raw)
+                if conv < 21 & conv != 11:
+                    raise IndexError("invalid bounds")
+                if conv > 66:
+                    raise IndexError("invalid bounds")
+                return conv
+            except:
+                print("Invalid input, please enter a Number between 21 and 66!")
+        
+        
+        
 
     def __getSelection(self,g: Game,p: Player):
         inp = input()
@@ -66,7 +81,7 @@ class CLI(IODriver):
 
     def __handlePass(self,g: Game,p: Player):
         print("As what would you like to pass the dice?")
-        inpLabel = int(input())
+        inpLabel = self.__getLabel(g,p)
         # The Player must say a higher number
         if Dice.Bigger(g.GetLabel(),inpLabel):
             print("You have to claim a higher number")
