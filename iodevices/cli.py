@@ -33,7 +33,7 @@ class CLI(IODriver):
         print("What do you do? (Options: 'pass', 'challenge, 'roll')")
         self.__getSelection(g,p)
 
-    # Gets the Input from the Console, until a valid number between 21 and 66 was entered
+    # Gets the Input from the Console, until a valid number between 21 and 66 or 11 was entered
     def __getLabel(self,g: Game,p: Player):
         conv = 0
         while True:
@@ -41,15 +41,42 @@ class CLI(IODriver):
             conv = 0
             try:
                 conv = int(raw)
-                if conv < 21 & conv != 11:
-                    raise IndexError("invalid bounds")
-                if conv > 66:
-                    raise IndexError("invalid bounds")
+                if self.__isValidLabel(conv) != True:
+                    raise ValueError("invalid label")
                 return conv
             except:
                 print("Invalid input, please enter a Number between 21 and 66!")
-        
-        
+    
+    #isValidLabel will check wether or not this label can exist
+    def __isValidLabel(self,inp):
+        # Convert inp to a string
+        inpstr = ""
+        try:
+            inpstr = str(inp)
+        except:
+            return False
+        # Check that the Length is 2
+        if len(inpstr) != 2:
+            return False
+        # Convert the First and Last Digit back to ints
+        dig1 = 0
+        dig2 = 0
+        try:
+            dig1 = int(inpstr[0])
+            dig2 = int(inpstr[1])
+        except:
+            return False
+        print(dig1,dig2)
+        # Check that each digit is from 1-6
+        if dig1 > 6 or dig1 < 1:
+            return False
+        if dig2 > 6 or dig2 < 1:
+            return False
+        # Check that digit one is larger than digit two
+        if dig1 < dig2:
+            return False
+        # if we have reached this point the label must be valid
+        return True
         
 
     def __getSelection(self,g: Game,p: Player):
